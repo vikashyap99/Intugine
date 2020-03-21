@@ -10,24 +10,25 @@ class Header extends Component {
 
         return(
             <div>
-                <nav class="navbar navbar-expand-lg navbar-light bg-light  "> 
-    <img src = 'assets/logo.svg' height='40' width='51'/>
+                <nav className="navbar navbar-expand-lg  bg-dark   "> 
+    <img src = 'assets/logo.svg' height='70' width='81'/>
   
 
-    <div class='col-md-4 ml-auto' >
+    <div className='col-md-4 ml-auto ' >
     <ul class="nav navbar-nav navbar-right  ">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li className="nav-item active ">
+        <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Brands</a>
+        <a class="nav-link text-white" href="#">Brands</a>
       </li>
       
       <li class="nav-item" >
-        <a class="nav-link disabled" href="#">Transporters</a>
+        <a class="nav-link text-white " href="#">Transporters</a>
       </li>
+      <li></li>
       <li class = "nav-item">
-      <a className="fa fa-profile-in fa-lg"  href="#"> Login</a>
+      <a className="fa fa-user "  href="#"> Login</a>
       </li>
     </ul>
     </div>

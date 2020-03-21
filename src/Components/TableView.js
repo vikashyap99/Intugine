@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Card,CardImg,CardImgOverlay, CardTitle, CardBody,CardText, Button, CardHeader} from 'reactstrap';
+import {Card, CardBody,CardHeader, Button} from 'reactstrap';
 
 
 
@@ -9,23 +9,30 @@ class TableView extends Component {
         data: this.props.data
     }
 
-    console = () => {
-        const a = this.state.data.map(x => {
-           return(
-               <div>
-                   <ul>{x["awbno"]}</ul>
-                    <ul>{x["carrier"]}</ul>
-               </div>
-           )
-        })
-        
+    check =  () => {
+        console.log(this.props.data,"check")
     }
 
     render(){
-
-        const a = this.state.data.map(x => {
+        console.log(this.state.data,"table-view")
+        let a
+        let date
+        if(this.props.data !== null){
+            //console.log(this.state.data)
+         a = this.props.data.map(x => {
+             //console.log(x)
+             if(x["extra_fields"] === undefined){
+                date = "01/01/01"
+             }
+             else{
+                 date = x["extra_fields"]["expected_delivery_date"]
+             }
             return(
-                <div class='row p-2'>
+                <div className=' mt-1 p-2 bg-info'>
+                    
+                    <Card class="navbar ">
+                        <CardBody>
+                        <div class='row pl-1'>
                     <ul>{x["awbno"]}</ul>
                      <ul>{x["carrier"]}</ul>
                     <ul>{x["from"]}</ul>
@@ -38,25 +45,28 @@ class TableView extends Component {
                             month: 'numeric',
                             day: '2-digit'
                         }).format(new Date(x["pickup_date"]))}</p></ul>
-                    <ul>{}
+                    <ul>
                     <p>
                         &nbsp;
                     {new Intl.DateTimeFormat('en-US', {
                             year: 'numeric',
                             month: 'numeric',
                             day: '2-digit'
-                        }).format(new Date(x["extra_fields"]["expected_delivery_date"]))}</p>
+                        }).format(new Date(date))}</p>
                         </ul>
                     <ul>{x["current_status"]}</ul>
+                    </div>
+                    </CardBody>
+                    </Card>
                 </div>
             )
-         })
+         })}
 
         return(
             <div>
-                <div className='col-9 mt-1'>
-                    <Card>
-                        <CardHeader>
+                <div className='col-9 mt-1 bg-secondary'>
+                    <Card className=''>
+                        <CardHeader className='bg-secondary'>
                             <div class='row pl-1'>
                                 <ul>AWB number</ul>
                                 <ul class='pl-4'>Transporter</ul>
@@ -70,6 +80,7 @@ class TableView extends Component {
                                 <ul>Status</ul>
                             </div>
                         </CardHeader>
+                        {/* <Button onClick={this.check}>Press</Button> */}
                         <CardBody>
                         {a}
                         </CardBody>

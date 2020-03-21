@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-import {Card,CardImg,CardImgOverlay, CardTitle, CardBody,CardText, Button} from 'reactstrap';
 import MainRow from './MainRow'
 import {DATA} from './data'
 import TableView from './TableView'
@@ -19,8 +18,8 @@ class Main extends Component {
         return (
             <div className="">
                <MainRow />
-                <Button onClick={this.console}>Click</Button>
-                <TableView  data = {this.state.data}/>
+                
+                {/* <TableView  data = {this.state.data}/> */}
                 <TimelineView />
             </div>
                 
