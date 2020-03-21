@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import { Navbar, NavbarBrand,Nav,Collapse,NavbarToggler,NavItem,Jumbotron } from 'reactstrap';
-import {NavLink} from 'react-router-dom'
+
 
 class Header extends Component {
 
@@ -11,7 +10,7 @@ class Header extends Component {
         return(
             <div>
                 <nav className="navbar navbar-expand-lg  bg-dark   "> 
-    <img src = 'assets/logo.svg' height='70' width='81'/>
+    <img src = 'assets/logo.svg' height='70' width='81' alt='profile'/>
   
 
     <div className='col-md-4 ml-auto ' >

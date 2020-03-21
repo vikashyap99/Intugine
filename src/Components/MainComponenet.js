@@ -1,7 +1,6 @@
 import React,{Component} from 'react'
 import MainRow from './MainRow'
 import {DATA} from './data'
-import TableView from './TableView'
 import TimelineView from './TimelineView'
 
 

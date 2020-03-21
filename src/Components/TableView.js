@@ -1,20 +1,27 @@
 import React,{Component} from 'react'
-import {Card, CardBody,CardHeader, Button} from 'reactstrap';
+import {Card, CardBody,CardHeader,} from 'reactstrap';
+import TimelineView from './TimelineView'
 
 
 
 class TableView extends Component {
 
     state ={
-        data: this.props.data
+        data: this.props.data,
+        scan: []
     }
 
-    check =  () => {
-        console.log(this.props.data,"check")
+    scanHandler = (x) => {
+        if(x["current_status_code"] !== "NFI")
+        this.setState({scan: [...x["scan"]]})
+        //console.log(this.state.scan[0],typeof(this.state.scan))
     }
 
     render(){
-        console.log(this.state.data,"table-view")
+        //console.log(this.state.scan)
+
+        const b = <TimelineView data = {this.state.scan} />
+
         let a
         let date
         if(this.props.data !== null){
@@ -30,7 +37,7 @@ class TableView extends Component {
             return(
                 <div className=' mt-1 p-2 bg-info'>
                     
-                    <Card class="navbar ">
+                    <Card class="navbar " onClick={() => this.scanHandler(x)}>
                         <CardBody>
                         <div class='row pl-1'>
                     <ul>{x["awbno"]}</ul>
@@ -63,8 +70,9 @@ class TableView extends Component {
          })}
 
         return(
-            <div>
-                <div className='col-9 mt-1 bg-secondary'>
+            <div className="container col m-0">
+            <div className="col " >
+                <div className='col-10 mt-1 bg-secondary'>
                     <Card className=''>
                         <CardHeader className='bg-secondary'>
                             <div class='row pl-1'>
@@ -86,6 +94,8 @@ class TableView extends Component {
                         </CardBody>
                     </Card>
                 </div>
+                {b}
+            </div>
             </div>
         )
     }
