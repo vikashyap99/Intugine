@@ -10,7 +10,10 @@ class Header extends Component {
         return(
             <div>
                 <nav className="navbar navbar-expand-lg  bg-dark   "> 
-    <img src = 'assets/logo.svg' height='70' width='81' alt='profile'/>
+                <div class="text-white">
+                <h1>Supply Chain Tracker</h1>
+                </div>
+    
   
 
     <div className='col-md-4 ml-auto ' >
@@ -37,4 +40,4 @@ class Header extends Component {
     }
 }
 
-export default Header
+export default Header 
